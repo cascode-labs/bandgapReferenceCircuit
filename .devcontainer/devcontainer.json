@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "iic-osic-tools",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "hpretl/iic-osic-tools",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"xuanli.spice",
+				"ms-python.python"
+			]
+		}
+	},
+	"postCreateCommand": "ln -s /workspaces/bandgapReferenceCircuit/.devcontainer/.bashrc /home/.bashrc",
+	"containerEnv": {
+		"DISPLAY": "host.docker.internal:0.0",
+		"XSCHEM_SKY130_PATH" : "/home/users/kustinj/.xschem/xschem_library/xschem_sky130",
+    	"netlist_dir" : "/tmp/sims",
+    	"SKYWATER_MODELS" : "/tmp/kustinj/ee272b/sky130_fd_pr_ngspice/latest",
+    	"SKYWATER_STDCELLS" : "~/ee272b/pdk/libraries/sky130_fd_sc_hd/latest"
+	},
+	
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}
