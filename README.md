@@ -20,9 +20,10 @@ forwarding on windows by just starting it and setting the $DISPLAY variable.
 2. Install [Visual Studio Code](https://code.visualstudio.com/): 
 This makes it easy to run the devcontainer using the remote development 
 extension.
-3. Follow the Docker Desktop installation. Note that part of the docker 
-installation includes installing WSL2.  This allow Docker to run Linux 
-Docker containers on Windows using the WSL2 Linux kernel.
+3. Follow the [Docker Desktop](https://docs.docker.com/desktop/) installation.
+Note that part of the docker installation includes installing WSL2.  
+This allow Docker to run Linux Docker containers on Windows using the WSL2 
+Linux kernel.
 
 ## One-time Linux install
 1. Install [Visual Studio Code](https://code.visualstudio.com/): 

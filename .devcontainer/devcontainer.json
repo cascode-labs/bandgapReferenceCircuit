@@ -14,11 +14,7 @@
 	},
 	"postCreateCommand": "ln -s /workspaces/bandgapReferenceCircuit/.devcontainer/.bashrc /home/.bashrc",
 	"containerEnv": {
-		"DISPLAY": "host.docker.internal:0.0",
-		"XSCHEM_SKY130_PATH" : "/home/users/kustinj/.xschem/xschem_library/xschem_sky130",
-    	"netlist_dir" : "/tmp/sims",
-    	"SKYWATER_MODELS" : "/tmp/kustinj/ee272b/sky130_fd_pr_ngspice/latest",
-    	"SKYWATER_STDCELLS" : "~/ee272b/pdk/libraries/sky130_fd_sc_hd/latest"
+		"DISPLAY": "host.docker.internal:0.0"
 	},
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
