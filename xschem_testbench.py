@@ -21,7 +21,7 @@ class ngspice_result:
 
 
 class xschem_testbench:
-    default_root_result_path = Path.home() / "sim_results"
+    #default_root_result_path = Path.home() / "sim_results"
     xschemrc_path = Path("/foss/pdks/sky130A/libs.tech/xschem/xschemrc")
     def __init__(self, name: str, schematic_path: Union[Path, str],
                  result_path: optional_path = None) -> None:
@@ -30,7 +30,8 @@ class xschem_testbench:
         if result_path is not None:
             self.result_path = Path(result_path)
         else:
-            self.result_path = self.default_root_result_path / self.name
+            #self.result_path = self.default_root_result_path / self.name
+            self.result_path = self.schematic_path.parent
         netlist_filename = self.schematic_path.stem +".spice"
         self.netlist_path = self.result_path / "netlist" / netlist_filename
         self.log_path = self.netlist_path.parent / "netlisting.log"
@@ -38,6 +39,7 @@ class xschem_testbench:
     def netlist(self):
         """netlist an xschem schematic."""
         print(f"netlisting {str(self.schematic_path)}\n to {self.netlist_path}")
+        self.netlist_path.parent.mkdir(parents=True,exist_ok=True)
         run_result=subprocess.run(["xschem", "-q", 
                         "-n", "-o", str(self.netlist_path.parent),
                         "-l", str(self.log_path),
