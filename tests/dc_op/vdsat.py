@@ -1,9 +1,11 @@
 import sys
-sys.path.append('../pyMOSChar')
-import spice3read as s3r
+#import spice3read as s3r
 import numpy as np
+import pyMOSChar.spice3read as s3r
+from pathlib import Path
 
-opdat = s3r.read('/workspaces/bandgapReferenceCircuit/sims/tsmc_bandgap_real_op.out')
+result_path = Path("/headless/sim_results/dc_op")
+opdat = s3r.read(str(result_path/ 'dc_op.out'))
 
 gms = [entry for entry in opdat.keys() if '[gm]' in entry]
 ids = [entry for entry in opdat.keys() if '[id]' in entry]

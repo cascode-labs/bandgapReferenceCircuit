@@ -8,3 +8,5 @@
 *.nodes
 *.sim
 *.spice
+tests/**/simulation
+tests/**/netlist

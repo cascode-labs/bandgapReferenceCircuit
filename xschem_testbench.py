@@ -67,7 +67,7 @@ class xschem_testbench:
                   f' {self.netlist_path}')
         return ngspice_result(self, output_path, raw_output_path)
 
-    def run_schemcatic(self) -> ngspice_result:
+    def run_schematic(self) -> ngspice_result:
         self.netlist()
         return self.simulate()
     
