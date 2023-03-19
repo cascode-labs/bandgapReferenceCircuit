@@ -5,24 +5,24 @@ K {}
 V {}
 S {}
 E {}
-P 4 5 550 -240 640 -240 640 -130 550 -130 550 -240 {}
-T {I/O Pins} 570 -230 0 0 0.3 0.3 {}
+P 4 5 580 -240 680 -240 680 -80 580 -80 580 -240 {}
+T {I/O Pins} 600 -230 0 0 0.3 0.3 {}
 N 110 -310 170 -310 { lab=vg}
 N 170 -340 170 -310 { lab=vg}
 N 150 -340 170 -340 { lab=vg}
 N 170 -340 280 -340 { lab=vg}
-N 110 -390 110 -370 { lab=VDD}
-N 320 -390 320 -370 { lab=VDD}
+N 110 -390 110 -370 { lab=vb}
+N 320 -390 320 -370 { lab=vb}
 N 110 -310 110 -240 { lab=vg}
 N 320 -300 320 -240 { lab=vout}
 N 50 -210 70 -210 { lab=va}
 N 310 -180 320 -180 { lab=Vq}
-N 320 -340 330 -340 { lab=VDD}
-N 330 -370 330 -340 { lab=VDD}
-N 320 -370 330 -370 { lab=VDD}
-N 100 -340 110 -340 { lab=VDD}
-N 100 -370 100 -340 { lab=VDD}
-N 100 -370 110 -370 { lab=VDD}
+N 320 -340 330 -340 { lab=vb}
+N 330 -370 330 -340 { lab=vb}
+N 320 -370 330 -370 { lab=vb}
+N 100 -340 110 -340 { lab=vb}
+N 100 -370 100 -340 { lab=vb}
+N 100 -370 110 -370 { lab=vb}
 N 110 -210 120 -210 { lab=GND}
 N 310 -210 320 -210 { lab=GND}
 N 200 -60 210 -60 { lab=GND}
@@ -32,19 +32,19 @@ N 420 -60 430 -60 { lab=GND}
 N 380 -90 380 -60 { lab=Vx}
 N 380 -90 420 -90 { lab=Vx}
 N 430 -60 430 -30 { lab=GND}
-N 420 -290 430 -290 { lab=VDD}
-N 430 -320 430 -290 { lab=VDD}
-N 420 -320 430 -320 { lab=VDD}
+N 420 -290 430 -290 { lab=vb}
+N 430 -320 430 -290 { lab=vb}
+N 420 -320 430 -320 { lab=vb}
 N 380 -300 380 -290 { lab=vout}
-N 420 -390 420 -320 { lab=VDD}
-N 110 -390 320 -390 { lab=VDD}
+N 420 -390 420 -320 { lab=vb}
+N 110 -390 320 -390 { lab=vb}
 N 110 -180 120 -180 { lab=Vq}
 N 210 -180 310 -180 { lab=Vq}
 N 200 -30 430 -30 { lab=GND}
 N 120 -180 210 -180 { lab=Vq}
 N 320 -310 320 -300 { lab=vout}
 N 320 -300 380 -300 { lab=vout}
-N 320 -390 420 -390 { lab=VDD}
+N 320 -390 420 -390 { lab=vb}
 N 120 -210 310 -210 { lab=GND}
 N 420 -260 420 -140 {
 lab=Vx}
@@ -58,6 +58,10 @@ N 360 -210 370 -210 {
 lab=vb}
 N 380 -300 520 -300 {
 lab=vout}
+N 260 -420 260 -390 {
+lab=vb}
+N 320 -30 320 20 {
+lab=GND}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 340 -210 0 1 {name=M5
 L='2'
 W='1'
@@ -186,11 +190,13 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {devices/gnd.sym} 290 -30 0 0 {name=l17 lab=GND}
-C {devices/ipin.sym} 570 -190 2 0 {name=p1 lab=va}
-C {devices/ipin.sym} 570 -170 2 0 {name=p2 lab=vb}
-C {devices/opin.sym} 570 -150 0 0 {name=p3 lab=vout}
+C {devices/ipin.sym} 600 -190 2 0 {name=p1 lab=va}
+C {devices/ipin.sym} 600 -170 2 0 {name=p2 lab=vb}
+C {devices/opin.sym} 600 -150 0 0 {name=p3 lab=vout}
 C {devices/lab_pin.sym} 50 -210 0 0 {name=l1 lab=va}
 C {devices/lab_pin.sym} 370 -210 2 0 {name=l3 lab=vb}
 C {devices/lab_pin.sym} 520 -300 2 0 {name=l4 lab=vout}
-C {devices/vdd.sym} 270 -390 0 0 {name=l5 lab=VDD}
+C {devices/iopin.sym} 600 -130 0 0 {name=p4 lab=VDD}
+C {devices/iopin.sym} 600 -110 0 0 {name=p5 lab=GND}
+C {devices/lab_pin.sym} 260 -420 1 0 {name=l5 lab=VDD}
+C {devices/lab_pin.sym} 320 20 3 0 {name=l6 lab=GND}

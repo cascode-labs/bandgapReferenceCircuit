@@ -57,11 +57,12 @@ N 720 -190 740 -190 {
 lab=GND}
 N 740 -380 740 -280 {
 lab=vbg}
+N 360 -60 360 -10 {
+lab=GND}
 C {sky130_fd_pr/pnp_05v5.sym} 240 -120 0 1 {name=Q2
 model=pnp_05v5_W3p40L3p40
 spiceprefix=X
 }
-C {devices/gnd.sym} 250 -60 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 290 -380 3 0 {name=l5 lab=Va}
 C {devices/lab_pin.sym} 330 -380 3 0 {name=l6 lab=Vb}
 C {devices/ammeter.sym} 570 -330 0 0 {name=Vr4 current=5.7238e-06}
@@ -106,3 +107,5 @@ C {devices/ngspice_probe.sym} 740 -320 0 0 {name=r8}
 C {devices/ipin.sym} 940 -240 0 0 {name=p1 lab=Va}
 C {devices/ipin.sym} 940 -220 0 0 {name=p2 lab=Vb}
 C {devices/iopin.sym} 940 -200 2 0 {name=p3 lab=vbg}
+C {devices/iopin.sym} 940 -180 2 0 {name=p4 lab=GND}
+C {devices/lab_pin.sym} 360 -10 3 0 {name=l1 lab=GND}
