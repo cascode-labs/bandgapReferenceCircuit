@@ -34,22 +34,29 @@ class xschem_testbench:
             self.result_path = self.schematic_path.parent
         netlist_filename = self.schematic_path.stem +".spice"
         self.netlist_path = self.result_path / "netlist" / netlist_filename
-        self.log_path = self.netlist_path.parent / "netlisting.log"
-
+        self.netlist_log_path = self.netlist_path.parent / ".netlisting.log"
+        soa_log_filename = self.schematic_path.stem + ".soa.log"
+        self.soa_log_path = self.result_path.parent / soa_log_filename
+        sim_log_filename = self.schematic_path.stem + ".sim.log"
+        self.sim_log_path = self.result_path.parent / sim_log_filename
+    
     def netlist(self):
         """netlist an xschem schematic."""
         print(f"netlisting {str(self.schematic_path)}\n to {self.netlist_path}")
+        self.netlist_path.parent.rmdir()
         self.netlist_path.parent.mkdir(parents=True,exist_ok=True)
-        run_result=subprocess.run(["xschem", "-q", 
+        sch_picture_path = self.netlist_path.parent / \
+                           (self.schematic_path.stem + ".svg")
+        run_result=subprocess.run(["xschem", "-q",
                         "-n", "-o", str(self.netlist_path.parent),
-                        "-l", str(self.log_path),
+                        "--svg", "--plotfile", str(sch_picture_path),
+                        "-l", str(self.netlist_log_path),
                         "--rcfile", str(self.xschemrc_path),
                         str(self.schematic_path)], 
                        capture_output=True, check=True)
         # if len(run_result.stdout) > 0:
         #     print(run_result.stdout)
-        #     with open(self.log_path) as log:
-        #         log.writ(run_result.stdout)
+        #     
 
         #os.system(f'xschem -q'
         #          f' -n {self.netlist_path}'
@@ -63,10 +70,16 @@ class xschem_testbench:
               f'  {self.netlist_path}')
         raw_output_path = f'{self.result_path/self.name}.raw'
         output_path = f'{self.result_path/self.name}.out'
-        os.system(f'ngspice -b'
-                  f' -o {output_path}'
-                  f' -r {raw_output_path}'
-                  f' {self.netlist_path}')
+        run_result=subprocess.run(
+            ["ngspice", "-b",
+             "-o", str(output_path),
+             "-r", raw_output_path,
+             f'--soa-log={self.soa_log_path}',
+             str(self.netlist_path),
+            ],
+            capture_output=True, check=True)
+        with open(self.sim_log_path,mode="w") as log:
+                 log.write(str(run_result.stdout))
         return ngspice_result(self, output_path, raw_output_path)
 
     def run_schematic(self) -> ngspice_result:
