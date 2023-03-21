@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../pyMOSChar')
-import spice3read as s3r
+import pyMOSChar.spice3read as s3r
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
@@ -8,7 +8,8 @@ from matplotlib import rc
 rc('text', usetex=True)
 rc('font', family='serif')
 
-data = s3r.read('../sims/tsmc_bandgap_real_tempsweep.raw')
+result_path = Path("/headless/sim_results/tempsweep")
+data = s3r.read(str(result_path/ 'tsmc_bandgap_real_tempsweep.out'))
 vbg = data['v(vbg)'][0]
 temp = data['temp-sweep'][0]
 vbg0 = np.interp(0, temp, vbg)
