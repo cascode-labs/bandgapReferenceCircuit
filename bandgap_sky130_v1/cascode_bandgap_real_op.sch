@@ -5,96 +5,76 @@ K {}
 V {}
 S {}
 E {}
-P 4 5 1000 -320 1420 -320 1420 -100 1000 -100 1000 -320 {}
-T {Voltages} 1020 -300 0 0 0.4 0.4 {}
-N 320 -80 340 -80 {
+P 4 5 690 -320 1110 -320 1110 -100 690 -100 690 -320 {}
+T {Voltages} 710 -300 0 0 0.4 0.4 {}
+N 350 -290 460 -290 {
 lab=#net1}
-N 320 -120 320 -80 {
-lab=#net1}
-N 320 -170 340 -170 {
-lab=#net1}
-N 300 -230 340 -230 {
+N 440 -150 480 -150 {
 lab=#net2}
-N 300 -60 340 -60 {
-lab=#net2}
-N 300 -230 300 -60 {
-lab=#net2}
-N 280 -120 320 -120 {
-lab=#net1}
-N 320 -170 320 -120 {
-lab=#net1}
-N 680 -250 680 -240 {
-lab=VDD}
-N 680 -340 770 -340 {
-lab=VDD}
-N 770 -250 770 -240 {
-lab=VDD}
-N 770 -170 790 -170 {
-lab=GND}
-N 770 -170 770 -140 {
-lab=GND}
-N 770 -140 790 -140 {
-lab=GND}
-N 790 -140 790 -120 {
-lab=GND}
-N 790 -260 790 -200 {
+N 310 -150 310 -100 {
 lab=#net3}
-N 590 -200 790 -200 {
+N 310 -100 480 -100 {
 lab=#net3}
-N 790 -340 790 -320 {
-lab=VDD}
-N 770 -340 790 -340 {
-lab=VDD}
-N 790 -340 900 -340 {
-lab=VDD}
-N 900 -340 900 -230 {
-lab=VDD}
-N 790 -200 860 -200 {
-lab=#net3}
-N 900 -200 910 -200 {
-lab=VDD}
-N 910 -230 910 -200 {
-lab=VDD}
-N 900 -230 910 -230 {
-lab=VDD}
-N 740 -250 740 -240 {
-lab=VDD}
-N 740 -250 770 -250 {
-lab=VDD}
-N 770 -340 770 -250 {
-lab=VDD}
-N 650 -250 650 -240 {
-lab=VDD}
-N 650 -250 680 -250 {
-lab=VDD}
-N 680 -340 680 -250 {
-lab=VDD}
-N 620 -280 620 -240 {
+N 290 -170 310 -170 {
 lab=#net4}
-N 500 -280 620 -280 {
+N 290 -170 290 -40 {
 lab=#net4}
-N 300 -280 440 -280 {
-lab=#net2}
-N 300 -280 300 -230 {
-lab=#net2}
-N 500 -320 710 -320 {
+N 290 -40 480 -40 {
+lab=#net4}
+N 540 -150 610 -150 {
 lab=#net5}
-N 280 -320 440 -320 {
-lab=#net1}
-N 900 -170 900 -140 {
+N 610 -260 610 -150 {
+lab=#net5}
+N 610 -280 630 -280 {
 lab=#net6}
-N 710 -320 710 -240 {
-lab=#net5}
-N 280 -320 280 -120 {
-lab=#net1}
-N 640 -80 900 -80 {
+N 630 -280 630 -100 {
+lab=#net6}
+N 540 -100 630 -100 {
+lab=#net6}
+N 540 -40 650 -40 {
 lab=#net7}
-C {devices/vsource.sym} 1030 -200 0 0 {name=V1 net_name=true value="'VDD' pwl 0us 0 5us 'VDD'"}
-C {devices/vdd.sym} 1030 -230 0 0 {name=l8 lab=VDD}
-C {devices/gnd.sym} 1030 -170 0 0 {name=l9 lab=GND}
-C {devices/vsource.sym} 1210 -200 0 0 {name=V2 net_name=true value="0 pulse(0V 1.8V 10us 0us 0us 5us)"}
-C {devices/gnd.sym} 1210 -170 0 0 {name=l16 lab=GND}
-C {devices/lab_pin.sym} 1210 -230 0 0 {name=l19 lab=pin}
+N 650 -300 650 -40 {
+lab=#net7}
+N 610 -300 650 -300 {
+lab=#net7}
+N 210 -170 290 -170 {
+lab=#net4}
+N 210 -270 210 -170 {
+lab=#net4}
+N 190 -150 310 -150 {
+lab=#net3}
+N 190 -310 190 -150 {
+lab=#net3}
+N 190 -310 210 -310 {
+lab=#net3}
+N 310 -100 310 -70 {
+lab=#net3}
+N 370 -70 420 -70 {
+lab=GND}
+N 280 -220 540 -220 {
+lab=GND}
+N 280 -250 280 -220 {
+lab=GND}
+N 410 -220 410 -210 {
+lab=GND}
+N 280 -350 280 -330 {
+lab=VDD}
+N 280 -350 540 -350 {
+lab=VDD}
+N 540 -350 540 -340 {
+lab=VDD}
+N 420 -390 420 -350 {
+lab=VDD}
+N 440 -170 480 -170 {
+lab=GND}
+N 480 -220 480 -170 {
+lab=GND}
+C {devices/vsource.sym} 720 -200 0 0 {name=V1 net_name=true value="'VDD' pwl 0us 0 5us 'VDD'"}
+C {devices/vdd.sym} 720 -230 0 0 {name=l8 lab=VDD}
+C {devices/gnd.sym} 720 -170 0 0 {name=l9 lab=GND}
+C {devices/vsource.sym} 900 -200 0 0 {name=V2 net_name=true value="0 pulse(0V 1.8V 10us 0us 0us 5us)"}
+C {devices/gnd.sym} 900 -170 0 0 {name=l16 lab=GND}
+C {devices/lab_pin.sym} 900 -230 0 0 {name=l19 lab=pin}
 C {devices/code.sym} 40 -320 0 0 {name=NGSPICE1
 only_toplevel=true
 spice_ignore=true
@@ -153,72 +133,18 @@ value="
 
 "
 spice_ignore=false}
-C {devices/vdd.sym} 770 -340 0 0 {name=l1 lab=VDD}
-C {devices/gnd.sym} 790 -120 0 0 {name=l2 lab=GND}
-C {devices/capa.sym} 790 -290 0 0 {name=C1
+C {devices/ammeter.sym} 510 -40 1 0 {name=Vm1 current=1.0057e-05}
+C {devices/ammeter.sym} 510 -100 1 0 {name=Vm2 current=1.0057e-05}
+C {/home/thomas/Projects/HW-Design/ieee_comps/bandgapReferenceCircuit/bandgap_sky130_v1/cascode_amplifier_with_bias-ckt.sym} 290 -290 0 0 {name=x1}
+C {devices/ammeter.sym} 510 -150 1 0 {name=Vm3 current=1.0057e-05}
+C {/home/thomas/Projects/HW-Design/ieee_comps/bandgapReferenceCircuit/bandgap_sky130_v1/current_3_mirror-ckt.sym} 530 -280 0 0 {name=x3}
+C {devices/lab_pin.sym} 460 -270 0 0 {name=l1 lab=pin}
+C {devices/gnd.sym} 410 -210 0 0 {name=l3 lab=GND}
+C {devices/capa.sym} 340 -70 3 0 {name=C1
 m=1
 value=20p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 830 -170 2 0 {name=l4 lab=pin}
-C {devices/ammeter.sym} 470 -280 1 0 {name=Vm1 current=1.0057e-05}
-C {devices/ammeter.sym} 470 -320 1 0 {name=Vm2 current=1.0057e-05}
-C {devices/ammeter.sym} 900 -110 0 0 {name=Vm3 current=1.0057e-05}
-C {sky130_fd_pr/pfet_01v8_lvt.sym} 650 -220 3 0 {name=M1
-L=2
-W=1
-nf=1
-mult=386.6
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_01v8_lvt
-spiceprefix=X
-}
-C {sky130_fd_pr/pfet_01v8_lvt.sym} 740 -220 3 0 {name=M2
-L=2
-W=1
-nf=1
-mult=386.6
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_01v8_lvt
-spiceprefix=X
-}
-C {sky130_fd_pr/pfet_01v8_lvt.sym} 880 -200 0 0 {name=M3
-L=2
-W=1
-nf=1
-mult=386.6
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_01v8_lvt
-spiceprefix=X
-}
-C {sky130_fd_pr/nfet_01v8_lvt.sym} 810 -170 2 0 {name=M10
-L='2'
-W='1'
-nf=1
-mult=34
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8_lvt
-spiceprefix=X
-}
-C {/home/thomas/Projects/bandgapReferenceCircuit/bandgap_sky130_v1/cascode_amplifier_with_bias-ckt.sym} 440 -200 0 0 {name=x1}
-C {/home/thomas/Projects/bandgapReferenceCircuit/bandgap_sky130_v1/cascode_bandgapCore.sym} 490 -70 0 0 {name=x2}
+C {devices/gnd.sym} 420 -70 3 0 {name=l2 lab=GND}
+C {devices/vdd.sym} 420 -390 0 0 {name=l4 lab=VDD}
+C {/home/thomas/Projects/HW-Design/ieee_comps/bandgapReferenceCircuit/bandgap_sky130_v1/cascode_bandgapCore.sym} 370 -160 2 1 {name=x2}

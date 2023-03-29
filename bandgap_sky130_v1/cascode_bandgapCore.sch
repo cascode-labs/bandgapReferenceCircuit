@@ -123,7 +123,6 @@ C {sky130_fd_pr/pnp_05v5.sym} 240 -120 0 1 {name=Q2
 model=pnp_05v5_W3p40L3p40
 spiceprefix=X
 }
-C {devices/gnd.sym} 250 -60 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 290 -380 3 0 {name=l5 lab=Va}
 C {devices/ammeter.sym} 570 -330 0 0 {name=Vr4 current=5.7238e-06}
 C {devices/ammeter.sym} 440 -330 0 0 {name=Vr2 current=4.3334e-06}
