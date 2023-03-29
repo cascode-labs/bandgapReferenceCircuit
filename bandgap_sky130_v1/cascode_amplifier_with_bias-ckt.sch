@@ -15,7 +15,7 @@ N 110 -390 110 -370 { lab=VDD}
 N 320 -390 320 -370 { lab=VDD}
 N 110 -310 110 -240 { lab=vg}
 N 320 -300 320 -240 { lab=vout}
-N 50 -210 70 -210 { lab=va}
+N 50 -210 70 -210 { lab=minus}
 N 310 -180 320 -180 { lab=Vq}
 N 320 -340 330 -340 { lab=VDD}
 N 330 -370 330 -340 { lab=VDD}
@@ -55,7 +55,7 @@ lab=Vq}
 N 210 -180 210 -110 {
 lab=Vq}
 N 360 -210 370 -210 {
-lab=vb}
+lab=plus}
 N 380 -300 520 -300 {
 lab=vout}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 340 -210 0 1 {name=M5
@@ -187,10 +187,12 @@ model=pfet_01v8_lvt
 spiceprefix=X
 }
 C {devices/gnd.sym} 290 -30 0 0 {name=l17 lab=GND}
-C {devices/ipin.sym} 570 -190 2 0 {name=p1 lab=va}
-C {devices/ipin.sym} 570 -170 2 0 {name=p2 lab=vb}
+C {devices/ipin.sym} 570 -190 2 0 {name=p1 lab=plus}
+C {devices/ipin.sym} 570 -170 2 0 {name=p2 lab=minus}
 C {devices/opin.sym} 570 -150 0 0 {name=p3 lab=vout}
-C {devices/lab_pin.sym} 50 -210 0 0 {name=l1 lab=va}
-C {devices/lab_pin.sym} 370 -210 2 0 {name=l3 lab=vb}
+C {devices/lab_pin.sym} 50 -210 0 0 {name=l1 lab=minus
+}
+C {devices/lab_pin.sym} 370 -210 2 0 {name=l3 lab=plus
+}
 C {devices/lab_pin.sym} 520 -300 2 0 {name=l4 lab=vout}
 C {devices/vdd.sym} 270 -390 0 0 {name=l5 lab=VDD}
