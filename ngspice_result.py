@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class ngspice_result:
     def __init__(self, test_bench: "xschem_testbench", 
                  output_path: Path, raw_output_path: Path) -> None:
