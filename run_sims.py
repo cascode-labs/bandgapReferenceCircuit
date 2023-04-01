@@ -11,5 +11,3 @@ if __name__ == "__main__":
     ]
     for test in tests:
         xschem_testbench.run(test[0], tests_dir / test[0] / test[1])
-
-    
