@@ -1,4 +1,4 @@
-name: base
+name: bandgap
 channels:
   - conda-forge
   - defaults
@@ -7,7 +7,13 @@ dependencies:
   - numpy
   - pandas
   - matplotlib
+  - pydantic=1.9.1
+  - protobuf=3.19.1
+  # Dev
   - pytest
+  - coverage
+  - pytest-cov
+  - pre-commit
   - pip
   - pip:
     - spyci
