@@ -6,17 +6,17 @@ V {}
 S {}
 E {}
 P 4 5 1190 -300 1290 -300 1290 -160 1190 -160 1190 -300 {}
-T {IO Pins} 1210 -280 0 0 0.4 0.4 {}
-N 440 -380 570 -380 { lab=#net1}
+T {IO Pins} 1210 -300 0 0 0.4 0.4 {}
+N 440 -380 570 -380 { lab=Va}
 N 220 -90 220 -60 { lab=GND}
 N 160 -120 220 -120 { lab=GND}
 N 160 -120 160 -60 { lab=GND}
-N 440 -380 440 -360 { lab=#net1}
-N 440 -300 440 -280 { lab=#net2}
-N 570 -380 570 -360 { lab=#net1}
-N 570 -300 570 -280 { lab=#net3}
+N 440 -380 440 -360 { lab=Va}
+N 440 -300 440 -280 { lab=#net1}
+N 570 -380 570 -360 { lab=Va}
+N 570 -300 570 -280 { lab=#net2}
 N 90 -380 90 -360 { lab=Va}
-N 90 -300 90 -280 { lab=#net4}
+N 90 -300 90 -280 { lab=#net3}
 N 440 -220 440 -150 { lab=vbneg}
 N 90 -200 90 -60 { lab=GND}
 N 570 -190 570 -60 { lab=GND}
@@ -64,25 +64,25 @@ lab=Va}
 N -20 -380 90 -380 {
 lab=Va}
 N 220 -690 440 -690 { lab=VDD}
-N 440 -560 440 -490 { lab=#net5}
-N 220 -560 220 -500 { lab=#net6}
+N 440 -560 440 -490 { lab=#net4}
+N 220 -560 220 -500 { lab=#net5}
 N 220 -690 220 -620 { lab=VDD}
 N 320 -600 320 -540 {
 lab=vgate}
 N 440 -430 440 -380 {
-lab=#net1}
+lab=Va}
 N 220 -440 220 -380 {
 lab=Va}
 N 780 -630 780 -600 { lab=VDD}
 N 710 -600 740 -600 { lab=vgate}
 N 780 -690 780 -630 { lab=VDD}
-N 780 -570 780 -540 { lab=#net7}
+N 780 -570 780 -540 { lab=#net6}
 N 570 -60 590 -60 {
 lab=GND}
 N 260 -600 400 -600 {
 lab=vgate}
 N 220 -570 220 -560 {
-lab=#net6}
+lab=#net5}
 N 220 -620 220 -600 {
 lab=VDD}
 N 440 -630 440 -600 {
@@ -90,7 +90,7 @@ lab=VDD}
 N 440 -690 440 -630 {
 lab=VDD}
 N 440 -570 440 -560 {
-lab=#net5}
+lab=#net4}
 N 680 -480 680 -450 {
 lab=GND}
 N 380 -650 550 -650 {
@@ -118,7 +118,11 @@ lab=vgate}
 N 440 -690 780 -690 {
 lab=VDD}
 N 350 -380 450 -380 {
-lab=#net1}
+lab=Va}
+N 260 -440 280 -440 {
+lab=VDD}
+N 360 -440 380 -440 {
+lab=GND}
 C {sky130_fd_pr/pnp_05v5.sym} 240 -120 0 1 {name=Q2
 model=pnp_05v5_W3p40L3p40
 spiceprefix=X
@@ -161,10 +165,7 @@ model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}
 C {devices/lab_pin.sym} 820 -400 0 1 {name=l2 lab=vbg}
-C {devices/ipin.sym} 1260 -240 0 0 {name=p1 lab=Va}
-C {devices/ipin.sym} 1260 -220 0 0 {name=p2 lab=Vb}
-C {devices/iopin.sym} 870 -430 2 0 {name=p3 lab=vbg}
-C {bandgap_sky130_v1/cascode_amplifier_with_bias-ckt.sym} 320 -540 3 0 {name=x1}
+C {devices/iopin.sym} 1260 -260 2 0 {name=p3 lab=vbg}
 C {devices/capa.sym} -20 -290 0 0 {name=C2
 m=1
 value=20p
@@ -240,3 +241,11 @@ spiceprefix=X
 C {devices/ngspice_get_value.sym} 790 -550 0 0 {name=r22 node=@m.xm3.msky130_fd_pr__pfet_01v8_lvt[gm]
 descr="gm="}
 C {devices/lab_pin.sym} 2640 -650 3 0 {name=l3 lab=Va}
+C {devices/iopin.sym} 1230 -200 0 0 {name=p4 lab=VDD}
+C {devices/iopin.sym} 1230 -180 0 0 {name=p5 lab=GND}
+C {devices/iopin.sym} 1260 -240 2 0 {name=p1 lab=porst}
+C {devices/lab_wire.sym} 270 -440 0 0 {name=p2 sig_type=std_logic lab=VDD}
+C {devices/lab_wire.sym} 370 -440 0 0 {name=p6 sig_type=std_logic lab=GND}
+C {devices/lab_wire.sym} 740 -60 0 0 {name=p7 sig_type=std_logic lab=GND}
+C {bandgap_sky130_v1/amplifier_v01.sym} 320 -540 3 0 {name=x1}
+C {devices/lab_pin.sym} 350 -380 3 0 {name=l1 lab=Vb}
