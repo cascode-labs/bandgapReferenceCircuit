@@ -12,3 +12,5 @@ tests/**/simulation
 tests/**/netlist
 tests/.DS_Store
 .DS_Store
+tests/**/*.raw
+tests/**/*.out
