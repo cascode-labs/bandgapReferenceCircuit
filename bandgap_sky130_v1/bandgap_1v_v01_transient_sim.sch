@@ -37,11 +37,11 @@ option temp=0
 tran 0.1n 20u
 option temp=70
 tran 0.1n 20u
-write tsmc_bandgap_real_70degc_vbg.raw vbg
+write tsmc_bandgap_real_70degc_vbg.raw vbg i(v1)
 setplot tran2
-write tsmc_bandgap_real_0degc_vbg.raw vbg
+write tsmc_bandgap_real_0degc_vbg.raw vbg i(v1)
 setplot tran1
-write tsmc_bandgap_real_27degc_vbg.raw vbg
+write tsmc_bandgap_real_27degc_vbg.raw vbg i(v1)
 .endc
 "}
 C {devices/gnd.sym} 230 -120 0 0 {name=l1 lab=GND}
