@@ -40,13 +40,6 @@ class xschem_testbench:
                         "--rcfile", str(self.xschemrc_path),
                         str(self.schematic_path)], 
                        capture_output=True, check=True)
-        # if len(run_result.stdout) > 0:
-        #     print(run_result.stdout)
-        #     
-
-        #os.system(f'xschem -q'
-        #          f' -n {self.netlist_path}'
-        #          f' {self.schematic_path}')
 
     def simulate(self) -> ngspice_result:
         """Simulate using ngspice"""

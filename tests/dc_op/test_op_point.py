@@ -18,6 +18,9 @@ def test_vdsat(dcop_result):
     # data = spyci.load_raw(str(dcop_result))
     data = rawread(str(dcop_result))
     #assert isinstance(dcop_result, ngspice_result)
+    assert V_bg < 0.95
+    assert V_bg < 1.05
+
 
 if __name__ == "__main__":
     test_vdsat(Path("/workspaces/bandgapReferenceCircuit/tests/dc_op/simulation/tsmc_bandgap_real_op.raw"))
