@@ -9,30 +9,31 @@ optional_path = Optional[Union[Path, str]]
 class xschem_testbench:
     #default_root_result_path = Path.home() / "sim_results"
     xschemrc_path = Path("/foss/pdks/sky130A/libs.tech/xschem/xschemrc")
-    def __init__(self, name: str, schematic_path: Union[Path, str],
+    def __init__(self, name: str, schematic_path: Union[Path, str],tb_path: Union[Path, str],
                  result_path: optional_path = None) -> None:
         self.name = name
         self.schematic_path = Path(schematic_path)
+        self.tb_path = Path(tb_path)
         if result_path is not None:
             self.result_path = Path(result_path)
         else:
             #self.result_path = self.default_root_result_path / self.name
-            self.result_path = self.schematic_path.parent
-        netlist_filename = self.schematic_path.stem +".spice"
+            self.result_path = self.tb_path
+        netlist_filename = self.schematic_path.stem + ".spice"
         self.netlist_path = self.result_path / "netlist" / netlist_filename
         self.netlist_log_path = self.netlist_path.parent / ".netlisting.log"
-        soa_log_filename = self.schematic_path.stem + ".soa.log"
-        self.soa_log_path = self.result_path.parent / soa_log_filename
-        sim_log_filename = self.schematic_path.stem + ".sim.log"
-        self.sim_log_path = self.result_path.parent / sim_log_filename
+        soa_log_filename = self.tb_path.stem + ".soa.log"
+        self.soa_log_path = self.tb_path / soa_log_filename
+        sim_log_filename = self.tb_path.stem + ".sim.log"
+        self.sim_log_path = self.result_path / sim_log_filename
     
     def netlist(self):
         """netlist an xschem schematic."""
-        print(f"netlisting {str(self.schematic_path)}\n to {self.netlist_path}")
-        self.netlist_path.parent.rmdir()
+        print(f"netlisting {str(self.tb_path)}\n to {self.netlist_path}")
+        #self.netlist_path.parent.rmdir()
         self.netlist_path.parent.mkdir(parents=True,exist_ok=True)
         sch_picture_path = self.netlist_path.parent / \
-                           (self.schematic_path.stem + ".svg")
+                           (self.tb_path.stem + ".svg")
         run_result=subprocess.run(["xschem", "-q",
                         "-n", "-o", str(self.netlist_path.parent),
                         "--svg", "--plotfile", str(sch_picture_path),
@@ -66,8 +67,8 @@ class xschem_testbench:
         return self.simulate()
     
     @classmethod
-    def run(cls, name: str, schematic_path: Union[Path, str]):
+    def run(cls, name: str, schematic_path: Union[Path, str],tb_path: Union[Path, str]):
         "Netlists and then simulates a schematic"
-        tb = cls(name, schematic_path)
+        tb = cls(name, schematic_path, tb_path)
         result = tb.run_schematic()
         result.print_summary()

@@ -247,5 +247,5 @@ C {devices/iopin.sym} 1260 -240 2 0 {name=p1 lab=porst}
 C {devices/lab_wire.sym} 270 -440 0 0 {name=p2 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 370 -440 0 0 {name=p6 sig_type=std_logic lab=GND}
 C {devices/lab_wire.sym} 740 -60 0 0 {name=p7 sig_type=std_logic lab=GND}
-C {bandgap_sky130_v1/amplifier_v01.sym} 320 -540 3 0 {name=x1}
+C {amplifier_v01.sym} 320 -540 3 0 {name=x1}
 C {devices/lab_pin.sym} 350 -380 3 0 {name=l1 lab=Vb}
