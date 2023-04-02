@@ -1,7 +1,7 @@
 from pathlib import path
 
 import hdl21 as h
-from hdl21.sim import Op, Include
+from hdl21.sim import Op, Include, Save, SaveMode
 import sky130
 from vlsir import spice
 
@@ -29,9 +29,11 @@ class BandgapDcopSim:
     # Simulation Stimulus
     op = Op()
     mod = Include(sky130.install.models)
+    save = Save(SaveMode.ALL)
+
 
 def run():
-    """# Run the `MosDcopSim` simulation."""
+    """# Run the simulation."""
 
     # Set a few runtime options.
     # If you'd like a different simulator, this and the check below are the place to specify it!
@@ -47,43 +49,5 @@ def run():
     # Run the simulation!
     results = BandgapDcopSim.run(opts)
 
-    # Get the transistor drain current
-    #id = abs(results["op"].data["i(v.xtop.vvdc)"])
-
-    # Check that it's in the expected range
-    # (There's nothing magic about these numbers; they're just past sim results.)
-    #assert id > 115e-6
-    #assert id < 117e-6
-
 if __name__ == "__main__":
     run()
-
-
-
-
-
-
-
-
-
-
-@h.module
-class MyModulesTestbench:
-    # ... Testbench content ...
-    
-
-# Create simulation input
-s = Sim(
-    tb=MyModulesTestbench,
-    attrs=[
-        Op(name="dcop"),
-        Save(SaveMode.ALL),
-        Meas(analysis="mytr", name="a_delay", expr="trig_targ_something"),
-        Include("/home/models"),
-        Lib(path="/home/models", section="fast"),
-        #Options(reltol=1e-9),
-    ],
-)
-
-# And run it!
-sim.run()
