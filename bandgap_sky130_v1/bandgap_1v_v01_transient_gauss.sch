@@ -7,7 +7,7 @@ S {}
 E {}
 C {devices/code_shown.sym} 80 60 0 0 {name=Transient
 only_toplevel=true 
-spice_ignore=false
+spice_ignore=true
 
 value="
 .option savecurrents
@@ -49,7 +49,7 @@ C {devices/lab_pin.sym} 300 -170 0 1 {name=l3 lab=vbg}
 C {devices/lab_pin.sym} 170 -170 0 0 {name=l15 lab=porst}
 C {devices/code.sym} -280 50 0 0 {name=NGSPICE1
 only_toplevel=true
-spice_ignore=true
+spice_ignore=false
 value=".option seed=13
 
 * this experimental option enables mos model bin 

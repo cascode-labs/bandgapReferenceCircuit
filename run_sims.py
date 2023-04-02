@@ -6,8 +6,8 @@ if __name__ == "__main__":
     sch_dir = Path("/workspaces/bandgapReferenceCircuit/bandgap_sky130_v1/")
     tests = [
         ["dc_op", "bandgap_1v_v01_dcop_testbench.sch"],
-        #["tran",  "tsmc_bandgap_real_tran.sch"],
-        #["tran_gauss", "tsmc_bandgap_real_tran_gauss.sch"], # MonteCarlo
+        ["tran",  "bandgap_1v_v01_transient_sim.sch"],
+        ["tran_gauss", "bandgap_1v_v01_transient_gauss.sch"], # MonteCarlo
         #["tempsweep", "tsmc_bandgap_real_tempsweep.sch"],
     ]
     for test in tests:
