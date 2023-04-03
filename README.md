@@ -2,6 +2,9 @@
 [Original design](https://github.com/johnkustin/bandgapReferenceCircuit) 
 by John William Kustin
 
+## Competition
+The design was submitted to the 2023 IEEE code-a-chip competition
+
 # Setup
 This repo runs in a [devcontainer](https://containers.dev/) based on the 
 [iic-osic-tools Docker image](https://hub.docker.com/r/hpretl/iic-osic-tools).

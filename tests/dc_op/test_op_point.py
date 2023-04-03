@@ -1,26 +1,45 @@
-import pytest
+import pytest, os
 from pathlib import Path
-#from xschem_testbench import xschem_testbench, ngspice_result
 from spyci import spyci
-from rawread import rawread
+from vlsirtools.spice import ngspice
+#from rawread import rawread
 
+from viper.testing.PerformanceTest import PerformanceTest
+from viper.simulators.SimResult import SimResult
 
+@pytest.fixture(scope="module")
+def performance_test(request: pytest.FixtureRequest) -> PerformanceTest:
 
-@pytest.fixture(scope="session")
-def dcop_result() -> Path:
-    return Path("/workspaces/bandgapReferenceCircuit/tests/dc_op/simulation/tsmc_bandgap_real_op.raw")
-    # tb = xschem_testbench("dc_op", "/workspaces/bandgapReferenceCircuit/tests/dc_op/tsmc_bandgap_real_op.sch")
-    # result = tb.run()
-    # result.print_summary()
-    # return result
+    try:
+        return PerformanceTest.read_package(request.module.__package__)
+    except:
+        return PerformanceTest.read_directory(
+            Path(os.environ["WORKSPACE_DIR"]) / "tests" / "dc_op"
+        )
 
-def test_vdsat(dcop_result):
+@pytest.fixture(scope="module")
+def sim_result(performance_test: PerformanceTest) -> Path:
+    return performance_test.sim_result
+
+def test_result_complete(sim_result: SimResult):
+    print(f"output_filepath: {sim_result.output_filepath}")
+    assert sim_result.output_filepath.exists()
+    assert sim_result.raw_output_filepath.exists()
+
+def test_open_raw(sim_result: SimResult):
+    raw_result = spyci.load_raw(sim_result.raw_output_filepath)
+    # with open(sim_result.raw_output_filepath) as raw_file:
+    #     raw_result = ngspice.parse_nutbin(raw_file)
+    print(raw_result)
+    assert True
+
+#def test_vdsat(dcop_result):
     # data = spyci.load_raw(str(dcop_result))
-    data = rawread(str(dcop_result))
+    #data = rawread(str(dcop_result))
     #assert isinstance(dcop_result, ngspice_result)
-    assert V_bg < 0.95
-    assert V_bg < 1.05
+ #   assert 1 < 2
+    #assert V_bg < 1.05
 
 
-if __name__ == "__main__":
-    test_vdsat(Path("/workspaces/bandgapReferenceCircuit/tests/dc_op/simulation/tsmc_bandgap_real_op.raw"))
+# if __name__ == "__main__":
+#     test_vdsat(Path("/workspaces/bandgapReferenceCircuit/tests/dc_op/simulation/tsmc_bandgap_real_op.raw"))

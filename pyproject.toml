@@ -1,6 +1,6 @@
 [project]
-name = bandgap_1v_v01
-version = 0.1.0
+name = "bandgap_1v_v01"
+version = "0.1.0"
 authors = [
    {name="Curtis Mayberry", email="Curtisma3@gmail.com"},
    {name="Yulin Deng", email=""},
@@ -8,11 +8,8 @@ authors = [
 ]
 readme = "README.md"
 license = {file="LICENSE"}
-description = An open-source bandgap circuit in the Skywater SKY130 process
-long_description = file: README.md
-long_description_content_type = text/markdown
+description = "A bandgap circuit in the Skywater SKY130 process"
 keywords = ["hardware", "analog"]
-license = Apache v2.0
 requires-python = ">=3.8"
 classifiers = [
     "Topic :: System :: Hardware",
