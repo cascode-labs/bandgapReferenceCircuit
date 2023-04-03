@@ -7,7 +7,7 @@ S {}
 E {}
 C {devices/code_shown.sym} 80 60 0 0 {name=Transient
 only_toplevel=true 
-spice_ignore=false
+spice_ignore=true
 
 value="
 .option savecurrents
@@ -37,11 +37,11 @@ option temp=0
 tran 0.1n 20u
 option temp=70
 tran 0.1n 20u
-write tsmc_bandgap_real_70degc_vbg.raw vbg i(v1)
+write tsmc_bandgap_real_70degc_vbg.raw vbg
 setplot tran2
-write tsmc_bandgap_real_0degc_vbg.raw vbg i(v1)
+write tsmc_bandgap_real_0degc_vbg.raw vbg
 setplot tran1
-write tsmc_bandgap_real_27degc_vbg.raw vbg i(v1)
+write tsmc_bandgap_real_27degc_vbg.raw vbg
 .endc
 "}
 C {devices/gnd.sym} 230 -120 0 0 {name=l1 lab=GND}
@@ -49,14 +49,14 @@ C {devices/lab_pin.sym} 300 -170 0 1 {name=l3 lab=vbg}
 C {devices/lab_pin.sym} 170 -170 0 0 {name=l15 lab=porst}
 C {devices/code.sym} -280 50 0 0 {name=NGSPICE1
 only_toplevel=true
-spice_ignore=true
+spice_ignore=false
 value=".option seed=13
 
 * this experimental option enables mos model bin 
 * selection based on W/NF instead of W
 .param ABSVAR=0.03
 .param VDDGAUSS=agauss(1.8, 'ABSVAR', 1)
-.param VDD=VCCGAUSS
+.param VDD=VDDGAUSS
 ** variation parameters:
 .param sky130_fd_pr__nfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__vth0_slope'
 .param sky130_fd_pr__pfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__pfet_01v8_lvt__vth0_slope'
