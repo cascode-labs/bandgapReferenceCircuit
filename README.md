@@ -1,9 +1,32 @@
-# SKY130 Bandgap Design
+# BANDGAP_1v_v01
+Designs a 1v bandgap in the SKY130 process.  The design is based on the
 [Original design](https://github.com/johnkustin/bandgapReferenceCircuit) 
-by John William Kustin
+by John William Kustin with just costmetic improvements to seperate the 
+amplifier and the bandgap hierarchically.
+
+The bandgap is designed by using a complete open-source EDA environment 
+contained in a [devcontainer](https://containers.dev/).  The devcontatiner runs in Visual Studio Code 
+using the 
+[remote containers extension](https://code.visualstudio.com/docs/devcontainers/containers) 
+to turn VS Code into a complete
+Integrated-circuit design environment (IDE).  The base image is the 
+[JKU iic-osic-tools](https://github.com/iic-jku/iic-osic-tools) 
+hosted on [DockerHub](https://hub.docker.com/r/hpretl/iic-osic-tools).  
+Note that the devcontainer can take 16 GB of disk space.  The container can be
+used in Windows, Linux, or MAC OS.
 
 ## Competition
-The design was submitted to the 2023 IEEE code-a-chip competition
+The design was submitted to the 
+[VLSI23 IEEE code-a-chip competition](https://github.com/cascode-labs/sscs-ose-code-a-chip.github.io/tree/main)
+
+## Team
+
+|Name|Affiliation|IEEE Member|SSCS Member|
+|:--:|:----------:|:----------:|:----------:|
+|Curtis Mayberry|[Cascode-Labs](http://www.cascode-labs.org/)|Yes|Yes|
+|Yulin Deng|[Cascode-Labs](http://www.cascode-labs.org/)|Yes|No|
+|Praveen Ramani|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
+|Thomas Pluck|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
 
 # Setup
 This repo runs in a [devcontainer](https://containers.dev/) based on the 
