@@ -7,7 +7,7 @@ S {}
 E {}
 C {devices/code_shown.sym} 80 60 0 0 {name=Transient
 only_toplevel=true 
-spice_ignore=true
+spice_ignore=false
 
 value="
 .option savecurrents
@@ -17,18 +17,19 @@ value="
 .param R2val='R3val*R2R3ratio'
 .param R4R2ratio='0.79694273'
 .param R4val='R2val*R4R2ratio
+.param VDD=1.8
 .control
 save all
-+ @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]
-+ @m.xm2.msky130_fd_pr__pfet_01v8_lvt[gm]
-+ @m.xm3.msky130_fd_pr__pfet_01v8_lvt[gm]
-+ @m.xm4.msky130_fd_pr__pfet_01v8_lvt[gm]
-+ @m.xm5.msky130_fd_pr__nfet_01v8_lvt[gm]
-+ @m.xm6.msky130_fd_pr__nfet_01v8_lvt[gm]
-+ @m.xm7.msky130_fd_pr__nfet_01v8_lvt[gm]
-+ @m.xm8.msky130_fd_pr__pfet_01v8_lvt[gm]
-+ @m.xm9.msky130_fd_pr__nfet_01v8_lvt[gm]
-+ @m.xm13.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm2.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm3.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm4.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm5.msky130_fd_pr__nfet_01v8_lvt[gm]
++ @m.x1.xm6.msky130_fd_pr__nfet_01v8_lvt[gm]
++ @m.x1.xm7.msky130_fd_pr__nfet_01v8_lvt[gm]
++ @m.x1.xm8.msky130_fd_pr__pfet_01v8_lvt[gm]
++ @m.x1.xm9.msky130_fd_pr__nfet_01v8_lvt[gm]
++ @m.x1.xm13.msky130_fd_pr__pfet_01v8_lvt[gm]
 
 option temp=27
 tran 0.1n 20u
@@ -36,11 +37,11 @@ option temp=0
 tran 0.1n 20u
 option temp=70
 tran 0.1n 20u
-write tsmc_bandgap_real_70degc_vbg.raw vbg
+write tsmc_bandgap_real_70degc_vbg.raw vbg i(v1)
 setplot tran2
-write tsmc_bandgap_real_0degc_vbg.raw vbg
+write tsmc_bandgap_real_0degc_vbg.raw vbg i(v1)
 setplot tran1
-write tsmc_bandgap_real_27degc_vbg.raw vbg
+write tsmc_bandgap_real_27degc_vbg.raw vbg i(v1)
 .endc
 "}
 C {devices/gnd.sym} 230 -120 0 0 {name=l1 lab=GND}
