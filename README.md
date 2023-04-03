@@ -25,8 +25,9 @@ The design was submitted to the
 |:--:|:----------:|:----------:|:----------:|
 |Curtis Mayberry|[Cascode-Labs](http://www.cascode-labs.org/)|Yes|Yes|
 |Yulin Deng|[Cascode-Labs](http://www.cascode-labs.org/)|Yes|No|
-|Praveen Ramani|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
 |Thomas Pluck|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
+|Praveen Ramani|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
+
 
 # Setup
 This repo runs in a [devcontainer](https://containers.dev/) based on the 
