@@ -4,6 +4,8 @@ Designs a 1v bandgap in the SKY130 process.  The design is based on the
 by John William Kustin with just costmetic improvements to seperate the 
 amplifier and the bandgap hierarchically.
 
+![Bandgap Schematic](bandgap_1v_v01.svg)
+
 The bandgap is designed by using a complete open-source EDA environment 
 contained in a [devcontainer](https://containers.dev/).  The devcontatiner runs in Visual Studio Code 
 using the 
@@ -27,7 +29,6 @@ The design was submitted to the
 |Yulin Deng|[Cascode-Labs](http://www.cascode-labs.org/)|Yes|No|
 |Thomas Pluck|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
 |Praveen Ramani|[Cascode-Labs](http://www.cascode-labs.org/)|No|No|
-
 
 # Setup
 This repo runs in a [devcontainer](https://containers.dev/) based on the 
