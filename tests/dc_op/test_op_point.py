@@ -25,9 +25,7 @@ def sim_result(performance_test: PerformanceTest) -> SimResult:
 @pytest.fixture(scope="module")
 def raw_op_result(sim_result: SimResult) -> pd.DataFrame:
     raw_result = spyci.load_raw(sim_result.raw_output_filepath)
-    
-    pd.DataFrame()
-    return performance_test.sim_result
+    return raw_result
 
 def test_result_complete(sim_result: SimResult):
     print(f"output_filepath: {sim_result.output_filepath}")
@@ -36,14 +34,25 @@ def test_result_complete(sim_result: SimResult):
 
 
 
-def test_open_raw(sim_result: SimResult):
-    raw_result = spyci.load_raw(sim_result.raw_output_filepath)
-    # with open(sim_result.raw_output_filepath) as raw_file:
-    #     raw_result = ngspice.parse_nutbin(raw_file)
-    vdd = raw_result["values"][0][0].real 
+# def test_open_raw(sim_result: SimResult):
+#     raw_result = spyci.load_raw(sim_result.raw_output_filepath)
+#     # with open(sim_result.raw_output_filepath) as raw_file:
+#     #     raw_result = ngspice.parse_nutbin(raw_file)
+#     vdd = raw_result["values"][0][0].real 
 
-#def test_vdsat(dcop_result):
-    # data = spyci.load_raw(str(dcop_result))
+def test_vdd(raw_op_result: dict):
+    vdd_dc = raw_op_result["values"][0][0].real
+    assert vdd_dc == 1.8
+
+def test_vbg(raw_op_result: dict):
+    vbg = raw_op_result["values"][0][142].real
+    vbg_nominal = 1.0
+    tolerance = 0.05
+    assert vbg > ((1-tolerance) * vbg_nominal)
+    assert vbg < ((1+tolerance) * vbg_nominal)
+
+# def test_vdsat(sim_result: SimResult):
+#     data = spyci.load_raw(str(sim_result.raw_output_filepath))
     #data = rawread(str(dcop_result))
     #assert isinstance(dcop_result, ngspice_result)
  #   assert 1 < 2
