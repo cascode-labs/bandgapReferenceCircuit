@@ -4,8 +4,10 @@ from hdl21.sim import sim, Op, Include, Lib
 from hdl21.external_module import ExternalModule
 from hdl21.primitives import Vdc, Cap, IdealCapacitorParams
 from hdl21.schematic.xschem_schematic import XschemSchematic
+from hdl21.prefix import f
 import viper.oshic_sitepdks as _
 import sky130
+
 
 prj_path = Path("/workspaces/prjs/bandgapReferenceCircuit")
 lib_path = prj_path / "bandgap_sky130_v1"
@@ -23,7 +25,7 @@ class DcOpTestbench:
     vdd = Vdc(dc=1.8)(n=VSS)  # A DC voltage source  
 
     # Load
-    C_load = Cap(c=)
+    C_load = Cap(c=10*f)(n=VSS)
 
     dut = ExternalModule(
         name="bandgap_1v_v01",
@@ -33,7 +35,7 @@ class DcOpTestbench:
             hdl21.Input(name="GND"),
         ],
         desc="1v bandgap reference",
-        )()(VDD=vdd.p, GND =VSS)
+        )()(vbg=C_load.p, VDD=vdd.p, GND=VSS)
 
 @sim
 class DcOpSim:
